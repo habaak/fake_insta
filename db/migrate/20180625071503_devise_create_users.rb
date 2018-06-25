@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class DeviseCreateUsers < ActiveRecord::Migration
-  before_action :set_post, only: []
-  before_action :authenticate_user!, except: :index
   def change
     create_table :users do |t|
       ## Database authenticatable
+      t.string :name
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 

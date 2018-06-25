@@ -16,13 +16,30 @@ $ rails generate devise user
 
 - `db/migrate/20180625_devise_create_users.rb`
 - `model/user.rb`
-- `config/db` :devise_for:users
+- `config/db/routes.rb` :devise_for:users
 
 4. migrate
 ```bash
 $ rake db:migrate
 ```
+5. Routes 확인
 
+   | new_user_session_path         | GET    | /users/sign_in(.:format)       | devise/sessions#new          |
+   | ----------------------------- | ------ | ------------------------------ | ---------------------------- |
+   | user_session_path             | POST   | /users/sign_in(.:format)       | devise/sessions#create       |
+   | destroy_user_session_path     | DELETE | /users/sign_out(.:format)      | devise/sessions#destroy      |
+   | user_password_path            | POST   | /users/password(.:format)      | devise/passwords#create      |
+   | new_user_password_path        | GET    | /users/password/new(.:format)  | devise/passwords#new         |
+   | edit_user_password_path       | GET    | /users/password/edit(.:format) | devise/passwords#edit        |
+   |                               | PATCH  | /users/password(.:format)      | devise/passwords#update      |
+   |                               | PUT    | /users/password(.:format)      | devise/passwords#update      |
+   | cancel_user_registration_path | GET    | /users/cancel(.:format)        | devise/registrations#cancel  |
+   | user_registration_path        | POST   | /users(.:format)               | devise/registrations#create  |
+   | new_user_registration_path    | GET    | /users/sign_up(.:format)       | devise/registrations#new     |
+   | edit_user_registration_path   | GET    | /users/edit(.:format)          | devise/registrations#edit    |
+   |                               | PATCH  | /users(.:format)               | devise/registrations#update  |
+   |                               | PUT    | /users(.:format)               | devise/registrations#update  |
+   |                               | DELETE | /users(.:format)               | devise/registrations#destroy |
 - 회원가입 : `get 'users/sign_up'`
 - 로그인 : `get 'users/sign_in'`
 - 로그아웃 : `get 'users/sign_out'`
