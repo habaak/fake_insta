@@ -49,11 +49,6 @@ $ rake db:migrate
 - `current_user` : 로그인 되어있는 user 오브젝트를 가지고 있음
 - `before_action :authenticate_user!` : 로그인 되어있는 유저 검증 (필터)
 
-7. View 파일 수정하기
-```bash
-$ rails generate devise:views users
-```
-
 
 1. View 파일 수정하기
 
